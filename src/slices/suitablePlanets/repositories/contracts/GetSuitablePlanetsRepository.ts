@@ -1,5 +1,5 @@
-import { SuitablePlanetsEntity } from "../../entities/SuitablePlanetsEntity";
+import { SuitablePlanetsData } from "../../entities/SuitablePlanetsEntity";
 
 export interface GetSuitablePlanetsRepository {
-  get(): Promise<SuitablePlanetsEntity[]>
+  get(): Promise<SuitablePlanetsData[]>
 }
