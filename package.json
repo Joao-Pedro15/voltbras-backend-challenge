@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
+    "dev": "tsnd --respawn --transpile-only app.ts",
     "scripter": "node API/script.js"
   },
   "keywords": [],
