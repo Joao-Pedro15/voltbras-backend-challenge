@@ -8,4 +8,8 @@ export class SuitablePlanetsRepository implements GetSuitablePlanetsRepository {
   async get(): Promise<SuitablePlanetsData[]> {
     return await this.repository.get()
   }
+
+  async getById(id: string): Promise<SuitablePlanetsData> {
+    return await this.repository.getById(id)
+  }
 }
