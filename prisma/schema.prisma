@@ -1,0 +1,40 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id String @id @default(uuid())
+  name String
+  recharges Recharge[]
+}
+
+
+model SuitablePlanets {
+  id String @id @default(uuid())
+  name String
+  mass Float
+  statations Stations[]
+}
+
+model Stations {
+  id String @id @default(uuid())
+  planetId String
+  planet SuitablePlanets @relation(fields: [planetId], references: [id])
+  recharges Recharge[]
+}
+
+model Recharge {
+  id String @id @default(uuid())
+  stationId String
+  userId String
+  station Stations @relation(fields: [stationId], references: [id])
+  user User @relation(fields: [userId], references: [id])
+}
