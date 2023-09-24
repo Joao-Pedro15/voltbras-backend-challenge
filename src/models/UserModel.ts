@@ -10,3 +10,14 @@ export class UserModel extends UserEntity {
   @Field()
   name: string;
 }
+
+@ObjectType()
+export class ReturnAddUser {
+  
+  @Field()
+  user: UserModel
+
+  @Field()
+  token: string
+
+}

@@ -1,17 +1,20 @@
 import { Resolver, Mutation, Arg, Query } from "type-graphql";
-import { UserModel } from "../../models/UserModel";
+import { ReturnAddUser, UserModel } from "../../models/UserModel";
 import { AddUserFactory } from "./factories/AddUserFactory";
 import { GetUsersFactory } from "./factories/GetUsersFactory";
+
+
 
 @Resolver()
 export class UserResolver {
 
-  @Mutation(() => UserModel)
+  @Mutation(() => ReturnAddUser)
   async addUser(
-    @Arg('name') name: string
+    @Arg('name') name: string,
+    @Arg('password') password: string
   ) {
     const user = new AddUserFactory()
-    return await user.build({ name })
+    return await user.build({ name, password })
   }
 
   @Query(() => [UserModel])

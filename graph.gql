@@ -10,7 +10,7 @@ scalar DateTime
 
 type Mutation {
   add(endDate: String!, stationId: String!, userId: String!): RechargeModel!
-  addUser(name: String!): UserModel!
+  addUser(name: String!, password: String!): ReturnAddUser!
   installStation(name: String!, planetId: String!): StationModel!
 }
 
@@ -27,6 +27,11 @@ type RechargeModel {
   startDate: DateTime!
   stationId: String!
   userId: String!
+}
+
+type ReturnAddUser {
+  token: String!
+  user: UserModel!
 }
 
 type StationHistory {
