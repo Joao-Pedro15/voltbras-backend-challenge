@@ -21,7 +21,7 @@ model SuitablePlanets {
   id String @id @default(uuid())
   name String
   mass Float
-  statations Stations[]
+  stations Stations[]
 }
 
 model Stations {
