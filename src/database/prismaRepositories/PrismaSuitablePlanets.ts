@@ -5,13 +5,19 @@ export class PrismaSuitablePlanets {
 
   async getById(id: string): Promise<SuitablePlanets> {
     const planet = await Prisma.suitablePlanets.findUnique({
-      where: { id }
+      where: { id },
     })
     return planet!
   }
 
-  async get(): Promise<SuitablePlanets[]> {
-    const planets = await Prisma.suitablePlanets.findMany()
+  async get() {
+    const planets = await Prisma.suitablePlanets.findMany({
+      include:{
+        stations:{
+          take: 1
+        }
+      }
+    })
     return planets
   }
 
