@@ -11,4 +11,8 @@ export class StationsRepository implements AddStationsRepository, GetStationsRep
   async get(): Promise<Stations[]> {
     return await this.repository.get()
   }
+
+  async getById(id: string): Promise<Stations> {
+    return await this.repository.getById(id)  
+  }
 } 
