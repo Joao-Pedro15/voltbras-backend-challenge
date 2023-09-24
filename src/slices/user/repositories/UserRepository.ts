@@ -1,5 +1,6 @@
 import { User } from "@prisma/client";
 import { AddUserRepository, GetUserRepository } from "./contracts";
+import { IUser } from "./types";
 
 export class UserRepository implements AddUserRepository, GetUserRepository {
   constructor(
@@ -12,5 +13,9 @@ export class UserRepository implements AddUserRepository, GetUserRepository {
 
   async get(): Promise<User[]> {
     return await this.repository.get()
+  }
+  
+  async getById(id: string): Promise<IUser | null> {
+    return await this.repository.getById(id)  
   }
 }
