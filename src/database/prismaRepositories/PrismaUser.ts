@@ -29,4 +29,11 @@ export class PrismaUser {
     return user
   }
 
+  async getByName(name: string) {
+    const user = await Prisma.user.findFirst({
+      where: { name }
+    })
+    return user
+  }
+
 }

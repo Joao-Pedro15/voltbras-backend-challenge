@@ -18,4 +18,8 @@ export class UserRepository implements AddUserRepository, GetUserRepository {
   async getById(id: string): Promise<IUser | null> {
     return await this.repository.getById(id)  
   }
+
+  async getByName(name: string): Promise<User | null> {
+    return await this.repository.getByName(name)
+  }
 }
