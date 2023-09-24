@@ -1,5 +1,6 @@
 import { User } from "@prisma/client";
 import { Prisma } from "../prismaClient/Prisma";
+import { IUser } from "../../slices/user/repositories/types";
 
 export class PrismaUser {
   
@@ -15,7 +16,7 @@ export class PrismaUser {
     return users
   }
 
-  async getByUser(id: string) {
+  async getByUser(id: string): Promise<IUser | null> {
     const user = await Prisma.user.findUnique({ 
       where: { id },
       include:{
