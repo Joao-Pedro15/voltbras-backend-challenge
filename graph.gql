@@ -4,6 +4,7 @@
 # -----------------------------------------------
 
 type Mutation {
+  addUser(name: String!): UserModel!
   installStation(name: String!, planetId: String!): StationModel!
 }
 
@@ -22,5 +23,10 @@ type SuitablePlanetModel {
   hasStation: Boolean!
   id: ID!
   mass: Float!
+  name: String!
+}
+
+type UserModel {
+  id: ID!
   name: String!
 }
