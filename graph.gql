@@ -17,6 +17,7 @@ type Mutation {
 type Query {
   SuitablePlanets: [SuitablePlanetModel!]!
   get: [UserModel!]!
+  stationHistory(id: String!): [StationHistory!]!
   stations: [StationModel!]!
 }
 
@@ -26,6 +27,12 @@ type RechargeModel {
   startDate: DateTime!
   stationId: String!
   userId: String!
+}
+
+type StationHistory {
+  duration: String!
+  startDate: String!
+  user: String!
 }
 
 type StationModel {
