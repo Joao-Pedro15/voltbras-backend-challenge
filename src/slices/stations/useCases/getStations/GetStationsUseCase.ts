@@ -8,7 +8,7 @@ export class GetStationsUseCase {
 
   async execute() {
     const stations = await this.stationsRepository.get()
-    if(!stations.length) throw new Error('Not Found Statios')
+    if(!stations.length) throw new Error('Not Found Stations')
     return stations.map(station => StationEntity.create(station))
   }
 }
