@@ -3,12 +3,23 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
+type Mutation {
+  installStation(name: String!, planetId: String!): StationModel!
+}
+
 type Query {
   get: [SuitablePlanetModel!]!
 }
 
+type StationModel {
+  id: ID!
+  name: String!
+  planetId: String!
+}
+
 type SuitablePlanetModel {
   hasStation: Boolean!
+  id: ID!
   mass: Float!
   name: String!
 }
