@@ -1,4 +1,4 @@
-import { Resolver, Mutation, Arg } from "type-graphql";
+import { Resolver, Mutation, Arg, Authorized } from "type-graphql";
 import { RechargeModel } from "../../models/RechargeModel";
 import { AddRechargeFactory } from "./factories/AddRechargeFactory";
 
@@ -6,7 +6,7 @@ import { AddRechargeFactory } from "./factories/AddRechargeFactory";
 export class RechargesResolver {
 
   @Mutation(() => RechargeModel)
-  
+  @Authorized()
   async add(
     @Arg('stationId') stationId: string,
     @Arg('userId') userId: string,
