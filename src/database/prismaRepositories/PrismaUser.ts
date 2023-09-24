@@ -10,4 +10,9 @@ export class PrismaUser {
     return user
   }
 
+  async get() {
+    const users = await Prisma.user.findMany()
+    return users
+  }
+
 }
