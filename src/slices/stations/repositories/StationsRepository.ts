@@ -1,5 +1,6 @@
 import { Stations } from "@prisma/client";
 import { AddStationsRepository, GetStationsRepository } from "./contracts";
+import { IStation } from "./types";
 
 export class StationsRepository implements AddStationsRepository, GetStationsRepository {
   constructor(private repository: AddStationsRepository&GetStationsRepository) {}
@@ -12,7 +13,7 @@ export class StationsRepository implements AddStationsRepository, GetStationsRep
     return await this.repository.get()
   }
 
-  async getById(id: string): Promise<Stations> {
+  async getById(id: string): Promise<IStation | null> {
     return await this.repository.getById(id)  
   }
 } 

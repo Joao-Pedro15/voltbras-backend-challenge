@@ -13,7 +13,15 @@ export class PrismaStations {
   }
 
   async getById(id:string) {
-    const station = await Prisma.stations.findUnique({ where: { id } })
+    const station = await Prisma.stations.findUnique({ 
+      where: { id } ,
+      include: {
+        recharges: {
+          take: 1,
+          orderBy: { endDate: 'desc' }
+        }
+      }
+    })
     return station!
   }
 
