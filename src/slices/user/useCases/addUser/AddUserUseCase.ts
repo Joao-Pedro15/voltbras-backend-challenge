@@ -1,5 +1,7 @@
 import { User } from "@prisma/client";
 import { AddUserRepository } from "../../repositories/contracts";
+import { sign } from 'jsonwebtoken'
+import { UserEntity } from "../../entities/UserEntity";
 
 export class AddUserUseCase {
   constructor(
@@ -8,6 +10,10 @@ export class AddUserUseCase {
 
   async execute(data: Omit<User, 'id'>) {
     const user = await this.userRepository.add(data)
-    return user
+    const token = sign({}, String(process.env.SECRET), { expiresIn: '7 d' })
+    return {
+      user: UserEntity.create(user),
+      token
+    }
   }
 }
