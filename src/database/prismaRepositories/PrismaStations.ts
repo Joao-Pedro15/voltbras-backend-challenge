@@ -14,7 +14,7 @@ export class PrismaStations {
 
   async getById(id:string) {
     const station = await Prisma.stations.findUnique({ where: { id } })
-    return station
+    return station!
   }
 
 }

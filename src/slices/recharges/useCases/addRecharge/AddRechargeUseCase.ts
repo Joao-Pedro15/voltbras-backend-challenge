@@ -9,9 +9,9 @@ export class AddRechargeUseCase {
     private stationsRepository: GetStationsRepository
   ) {}
 
-  async execute(data: Omit<Recharge, 'id'>) {    
+  async execute(data: Omit<Recharge, 'id' | 'startDate'>) {    
     const station = this.stationsRepository.getById(data.stationId)
     if(!station) throw new Error('Not Found Station')
-    return await this.rechargesRepository.add({...data, startDate: new Date()}) 
+    return await this.rechargesRepository.add(data) 
   }
 }
