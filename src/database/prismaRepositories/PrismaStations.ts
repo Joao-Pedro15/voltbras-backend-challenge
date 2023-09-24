@@ -7,4 +7,9 @@ export class PrismaStations {
     return resp
   }
 
+  async get() {
+    const stations = await Prisma.stations.findMany()
+    return stations
+  }
+
 }

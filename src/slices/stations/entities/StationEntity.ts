@@ -5,6 +5,7 @@ export class StationEntity {
   constructor(data: { name: string, planetId: string, id: string }) {
     this.name = data.name
     this.planetId = data.planetId
+    this.id = data.id
   }
 
   static create(data: { name: string, planetId: string, id:string }) {
