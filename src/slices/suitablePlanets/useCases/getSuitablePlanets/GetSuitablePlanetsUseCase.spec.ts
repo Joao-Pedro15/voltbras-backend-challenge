@@ -2,6 +2,7 @@ import { MockProxy, mock } from 'jest-mock-extended'
 import { GetSuitablePlanetsRepository } from '../../repositories/contracts'
 import { GetSuitablePlanetsUseCase } from './GetSuitablePlanetsUseCase'
 import { fakePlanetInAPI } from '../../entities/SuitablePlanetsEntity.spec'
+import { SuitablePlanetsEntity } from '../../entities/SuitablePlanetsEntity'
 
 describe("testing useCase getSuitablePlanets", () => {
   let suitablePlanetsRepository: MockProxy<GetSuitablePlanetsRepository>
@@ -26,6 +27,6 @@ describe("testing useCase getSuitablePlanets", () => {
     const result = await testInstance.execute()
     expect(suitablePlanetsRepository.get).toHaveBeenCalled()
     expect(result).toHaveLength(2)
-    expect(result[0]).toEqual({ name: "11 Com b", mass: 0, hasStation: false })
+    expect(result[0]).toEqual(SuitablePlanetsEntity.create(fakePlanetInAPI))
   })
 })
