@@ -12,4 +12,9 @@ export class PrismaStations {
     return stations
   }
 
+  async getById(id:string) {
+    const station = await Prisma.stations.findUnique({ where: { id } })
+    return station
+  }
+
 }
