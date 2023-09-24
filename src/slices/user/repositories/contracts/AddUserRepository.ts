@@ -1,5 +1,5 @@
 import { User } from "@prisma/client";
 
 export interface AddUserRepository {
-  add(data: User): Promise<User>
+  add(data: Omit<User, 'id'>): Promise<User>
 }
