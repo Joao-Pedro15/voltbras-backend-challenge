@@ -28,7 +28,8 @@ export const fakeStation:IStation = {
     userId: randomUUID(),
     user: {
       id: randomUUID(),
-      name: 'fakeUser'
+      name: 'fakeUser',
+      password: 'eoriujgerijg'
     }
   }]
 }
@@ -36,6 +37,7 @@ export const fakeStation:IStation = {
 export const fakeUser: IUser = {
   id: randomUUID(),
   name: 'fakeUser',
+  password: 'oreijferoi',
   recharges: [
     {
       endDate: new Date(),

@@ -7,7 +7,7 @@ const fakeRecharge: IRercharge = {
   id: randomUUID(),
   startDate: new Date('2023-09-30 08:00:00'),
   stationId: randomUUID(),
-  user: { id: randomUUID(), name: 'Josézin' },
+  user: { id: randomUUID(), name: 'Josézin', password:'eroijgreoij' },
   userId: randomUUID()
 }
 
