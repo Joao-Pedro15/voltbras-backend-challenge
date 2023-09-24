@@ -1,5 +1,6 @@
 import { ObjectType, Field, ID } from "type-graphql";
 import { RechargeEntity } from "../slices/recharges/entities/RechargeEntity";
+import { RechargeHistoryEntity } from "../slices/recharges/entities/RechargeHistoryEntity";
 
 @ObjectType()
 export class RechargeModel extends RechargeEntity {
@@ -18,5 +19,19 @@ export class RechargeModel extends RechargeEntity {
 
   @Field()
   userId: string;
+
+}
+
+@ObjectType()
+export class StationHistory extends RechargeHistoryEntity {
+
+  @Field()
+  public duration: string;
+
+  @Field()
+  public startDate: string;
+
+  @Field()
+  public user: string;
 
 }
