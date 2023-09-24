@@ -1,5 +1,9 @@
-import { Recharge, Stations } from "@prisma/client";
+import { Recharge, Stations, User } from "@prisma/client";
 
 export interface IStation extends Stations {
-  recharges: Recharge[]
+  recharges: IRercharge[]
+}
+
+export interface IRercharge extends Recharge {
+  user: User
 }
