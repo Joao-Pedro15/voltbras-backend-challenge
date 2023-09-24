@@ -1,12 +1,12 @@
 import { SuitablePlanets } from "@prisma/client";
-import { SuitablePlanetsData } from "../entities/SuitablePlanetsEntity";
 import { GetSuitablePlanetsRepository } from "./contracts";
+import { ISuitablePlanets } from "./types";
 
 export class SuitablePlanetsRepository implements GetSuitablePlanetsRepository {
 
   constructor(private repository: GetSuitablePlanetsRepository){}
   
-  async get(): Promise<SuitablePlanets[]> {
+  async get(): Promise<ISuitablePlanets[]> {
     return await this.repository.get()
   }
 

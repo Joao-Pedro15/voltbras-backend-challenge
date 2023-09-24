@@ -1,6 +1,7 @@
 import { SuitablePlanets } from "@prisma/client";
+import { ISuitablePlanets } from "../types";
 
 export interface GetSuitablePlanetsRepository {
-  get(): Promise<SuitablePlanets[]>
+  get(): Promise<ISuitablePlanets[]>
   getById(id:string): Promise<SuitablePlanets>
 }
