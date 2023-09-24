@@ -17,8 +17,10 @@ export class PrismaStations {
       where: { id } ,
       include: {
         recharges: {
-          take: 1,
-          orderBy: { endDate: 'desc' }
+          orderBy: { endDate: 'desc' },
+          include: {
+              user: true
+          }
         }
       }
     })
