@@ -108,7 +108,9 @@ export class SuitablePlanetsEntity {
   public name: string
   public mass: number
   public hasStation: boolean
+  public id: string
   constructor(data: SuitablePlanets){
+    this.id = data.id
     this.name = data.name
     this.mass = Number(data.mass) ?? 0
     this.hasStation = false
