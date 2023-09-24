@@ -6,6 +6,15 @@ import { randomUUID } from 'node:crypto'
 import { AddRecharsRepository } from "../../repositories/contracts"
 import { GetUserRepository } from "../../../user/repositories/contracts"
 import { IUser } from "../../../user/repositories/types"
+import { Recharge } from "@prisma/client"
+
+export const fakeRecharge: Recharge = {
+  endDate: new Date('2023-09-25'),
+  id: randomUUID(),
+  startDate: new Date(),
+  stationId: randomUUID(),
+  userId: randomUUID()
+}
 
 export const fakeStation:IStation = {
   id: randomUUID(),
@@ -16,7 +25,11 @@ export const fakeStation:IStation = {
     id: randomUUID(),
     startDate: new Date(),
     stationId:randomUUID(),
-    userId: randomUUID()
+    userId: randomUUID(),
+    user: {
+      id: randomUUID(),
+      name: 'fakeUser'
+    }
   }]
 }
 
@@ -59,19 +72,19 @@ describe("testing useCase addRecharges", () => {
 
   it('should return not found station error', async () => {
     stationsRepository.getById.mockResolvedValueOnce(null)
-    await expect(testInstance.execute(fakeStation.recharges[0]))
+    await expect(testInstance.execute(fakeRecharge))
     .rejects.toThrowError('Not Found Station')
   })
 
   it('should return not found station error', async () => {
     userRepository.getById.mockResolvedValueOnce(null)
-    await expect(testInstance.execute(fakeStation.recharges[0]))
+    await expect(testInstance.execute(fakeRecharge))
     .rejects.toThrowError('Not Found User')
   })
 
   it('should return Station has a recharge in progress error', async () => {
     stationsRepository.getById.mockResolvedValueOnce({...fakeStation, recharges: [{...fakeStation.recharges[0], endDate: new Date('2030-10-10')}]})
-    await expect(testInstance.execute(fakeStation.recharges[0]))
+    await expect(testInstance.execute(fakeRecharge))
     .rejects.toThrowError('Station has a recharge in progress')
   })
 
@@ -86,7 +99,7 @@ describe("testing useCase addRecharges", () => {
   })
 
   it('passing all validations and create charge', async () => {
-    const result = await testInstance.execute(fakeStation.recharges[0])
+    const result = await testInstance.execute(fakeRecharge)
     expect(result).toBeUndefined()
   })
 })
