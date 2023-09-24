@@ -1,6 +1,6 @@
-import { SuitablePlanetsData } from "../../entities/SuitablePlanetsEntity";
+import { SuitablePlanets } from "@prisma/client";
 
 export interface GetSuitablePlanetsRepository {
-  get(): Promise<SuitablePlanetsData[]>
-  getById(id:string): Promise<SuitablePlanetsData>
+  get(): Promise<SuitablePlanets[]>
+  getById(id:string): Promise<SuitablePlanets>
 }

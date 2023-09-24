@@ -1,3 +1,5 @@
+import { SuitablePlanets } from "@prisma/client"
+
 export interface SuitablePlanetsData {
   pl_name: string
   hostname: string
@@ -106,13 +108,13 @@ export class SuitablePlanetsEntity {
   public name: string
   public mass: number
   public hasStation: boolean
-  constructor(data: SuitablePlanetsData){
-    this.name = data.pl_name
-    this.mass = Number(data.pl_masse) ?? 0
+  constructor(data: SuitablePlanets){
+    this.name = data.name
+    this.mass = Number(data.mass) ?? 0
     this.hasStation = false
   }
 
-  static create(data: SuitablePlanetsData) {
+  static create(data: SuitablePlanets) {
     return new SuitablePlanetsEntity(data)
   }
 }
