@@ -6,7 +6,7 @@ import { SuitablePlanetModel } from "../../models/SuitablePlanetModel";
 @Resolver()
 export class SuitablePlanetsResolver {
 
-  @Query(() => [SuitablePlanetModel]) 
+  @Query(() => [SuitablePlanetModel], { name: 'SuitablePlanets' }) 
   async get() {
     const item = new GetSuitablePlanetsFactory()
     return await item.build() as SuitablePlanetsEntity[]
