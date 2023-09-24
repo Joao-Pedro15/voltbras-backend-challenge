@@ -3,27 +3,34 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
+"""
+The javascript `Date` as string. Type represents date and time as the ISO Date string.
+"""
+scalar DateTime
+
 type Mutation {
+  add(endDate: String!, stationId: String!, userId: String!): RechargeModel!
   addUser(name: String!): UserModel!
   installStation(name: String!, planetId: String!): StationModel!
 }
 
 type Query {
-  get: [SuitablePlanetModel!]!
+  get: [UserModel!]!
   stations: [StationModel!]!
+}
+
+type RechargeModel {
+  endDate: DateTime!
+  id: ID!
+  startDate: DateTime!
+  stationId: String!
+  userId: String!
 }
 
 type StationModel {
   id: ID!
   name: String!
   planetId: String!
-}
-
-type SuitablePlanetModel {
-  hasStation: Boolean!
-  id: ID!
-  mass: Float!
-  name: String!
 }
 
 type UserModel {

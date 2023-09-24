@@ -5,10 +5,11 @@ import { SuitablePlanetsResolver } from './src/resolvers/suitablePlanets/Suitabl
 import { ApolloServer } from 'apollo-server'
 import { StationsResolver } from './src/resolvers/stations/StationsResolver'
 import { UserResolver } from './src/resolvers/user/UserResolver'
+import { RechargesResolver } from './src/resolvers/recharges/RechargesResolver'
 
 async function main() {
   const schema = await buildSchema({
-    resolvers: [SuitablePlanetsResolver, StationsResolver, UserResolver],
+    resolvers: [SuitablePlanetsResolver, StationsResolver, UserResolver, RechargesResolver],
     emitSchemaFile: path.resolve(__dirname, 'graph.gql')
   })
 
