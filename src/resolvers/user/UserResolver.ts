@@ -1,6 +1,7 @@
-import { Resolver, Mutation, Arg } from "type-graphql";
+import { Resolver, Mutation, Arg, Query } from "type-graphql";
 import { UserModel } from "../../models/UserModel";
 import { AddUserFactory } from "./factories/AddUserFactory";
+import { GetUsersFactory } from "./factories/GetUsersFactory";
 
 @Resolver()
 export class UserResolver {
@@ -13,4 +14,9 @@ export class UserResolver {
     return await user.build({ name })
   }
 
+  @Query(() => [UserModel])
+  async get() {
+    const users = new GetUsersFactory()
+    return await users.build()
+  }
 }
