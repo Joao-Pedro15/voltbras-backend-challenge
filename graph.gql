@@ -12,6 +12,7 @@ type Mutation {
   add(endDate: String!, stationId: String!, userId: String!): RechargeModel!
   addUser(name: String!, password: String!): ReturnAddUser!
   installStation(name: String!, planetId: String!): StationModel!
+  login(name: String!, password: String!): String!
 }
 
 type Query {
