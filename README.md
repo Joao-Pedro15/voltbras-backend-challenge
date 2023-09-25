@@ -47,3 +47,7 @@ Siga estas instruções para instalar e usar o projeto em sua máquina local:
   - Criei um schema do PrismaJs, adaptando a falta da API da NASA para uma tabela de planetas (SuitablePlanets) e as demais tabelas (User, Station e Recharges)
 
   - Dado isso, inicializei o projeto com o Apollo-Server para criar o schema do graphql e assim fazer minhas Queries, Mutations e Resolver da aplicação
+
+
+## Video
+  https://youtu.be/UBp6WBxhJQw
