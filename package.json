@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
     "dev": "tsnd --respawn --transpile-only app.ts",
-    "scripter": "node API/script.js"
+    "scripter": "node ./nasa_integration/index.js"
   },
   "keywords": [],
   "author": "",
@@ -14,7 +14,7 @@
   "dependencies": {
     "@prisma/client": "^5.3.1",
     "apollo-server": "^3.12.1",
-    "csvtojson": "^2.0.10",
+    "csv-parser": "^3.0.0",
     "dotenv": "^16.3.1",
     "graphql": "15.8",
     "jsonwebtoken": "^9.0.2",
