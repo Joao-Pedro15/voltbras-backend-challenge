@@ -15,10 +15,12 @@ export class AddRechargeUseCase {
     if(!user) throw new Error('Not Found User')
     const station = await this.stationsRepository.getById(data.stationId)
     if(!station) throw new Error('Not Found Station')
-    if(!this.validateRecharge(station.recharges[0].endDate)) {
+    if(station.recharges.length && !this.validateRecharge(station.recharges[0].endDate)) {
       throw new Error('Station has a recharge in progress')
     }
-    if(!this.validateRecharge(user.recharges[0].endDate))
+    if(user.recharges.length && !this.validateRecharge(user.recharges[0].endDate)) {
+      throw new Error("This user has a Recharge in progress")
+    }
     return await this.rechargesRepository.add(data) 
   }
 

@@ -16,7 +16,7 @@ export class PrismaUser {
     return users
   }
 
-  async getByUser(id: string): Promise<IUser | null> {
+  async getById(id: string): Promise<IUser | null> {
     const user = await Prisma.user.findUnique({ 
       where: { id },
       include:{
