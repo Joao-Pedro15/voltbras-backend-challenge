@@ -16,7 +16,7 @@ describe('testing entity RechargeHistory', () => {
     const recharge = RechargeHistoryEntity.create(fakeRecharge)
     expect(recharge).toEqual({
       "duration": "Dias: 0, Horas: 0, Minutos: 10",
-      "startDate": "30 de setembro de 2023 8:00:00 BRT",
+      "startDate": "30 de setembro de 2023 às 8:00:00 BRT",
       "user": "Josézin",
     })
   })
